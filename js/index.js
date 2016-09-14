@@ -38,7 +38,7 @@ new Vue({
   },
   methods: {
     add: function() {
-      if(this.student.grade == "") {return false;}
+      if(this.student.grade === "") {return false;}
 
       var price = {
           tuition: this.student.grade > 0 ? this.getDiscountedTuition() : this.k_tuition,
