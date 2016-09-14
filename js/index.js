@@ -14,8 +14,8 @@ new Vue({
       { text: "Junior High (6th - 8th)", display: "Junior High", value: 3},
       { text: "High School (9th - 12th)", display: "High School", value: 4}
     ],
-    tuition: [
-      5800,
+    k_tuition: 5800,
+    hs_tuition: [
       5300,
       4980,
       4570,
@@ -37,7 +37,7 @@ new Vue({
       if(this.student.grade == "") {return false;}
 
       var price = {
-          tuition: this.student.grade > 0 ? this.getDiscountedTuition() : this.tuition[0],
+          tuition: this.student.grade > 0 ? this.getDiscountedTuition() : this.k_tuition,
           registration: this.student.returning ? this.registration['returning'] : this.registration['new'],
           building: this.students.length == 0 ? 250 : 0,
           comprehensive: this.getComprehensive(this.student.grade),  
@@ -65,7 +65,7 @@ new Vue({
             return carry + (student.grade.value > 0 ? 1 : 0);
           }, 0);
 
-        return this.tuition[numOfStudentsThatQualify + 1];
+        return this.hs_tuition[numOfStudentsThatQualify % 4];
     },
 
     getComprehensive: function(grade) {
