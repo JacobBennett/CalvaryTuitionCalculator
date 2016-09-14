@@ -42,6 +42,7 @@
               <span v-else>Show Details</span>
             </button>
             <button @click="add" class="btn btn-primary">Add Student</button>
+            <button v-if="students.length !== 0" @click="resetForm" class="btn btn-default">Reset Form</button>
           </div>
         </div>
 
@@ -76,8 +77,8 @@
           <h4>Total: $ {{total | currency}}</h4>
         </div>
 
-        <pre>{{student | json}}</pre>
-        <pre>{{students | json}}</pre>
+        <!-- <pre>{{student | json}}</pre> -->
+        <!-- <pre>{{students | json}}</pre> -->
       </div>
     </div>
   </div>

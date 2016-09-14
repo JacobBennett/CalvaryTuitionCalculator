@@ -37,6 +37,12 @@ new Vue({
     ]
   },
   methods: {
+    resetForm: function() {
+      this.students = [];
+      this.student.grade = "";
+      this.student.returning = true;
+    },
+
     add: function() {
       if(this.student.grade === "") {return false;}
 
