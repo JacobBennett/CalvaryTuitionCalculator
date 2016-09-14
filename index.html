@@ -47,33 +47,33 @@
 
         <div class="panel panel-default" v-for="student in students">
           <div class="panel-heading">
-            <h5 class="pull-right">$ {{student.subtotal}}</h5>
+            <h5 class="pull-right">$ {{student.subtotal | currency}}</h5>
             <h5>{{student.grade.display}} Student</h5>
           </div>
           <table class="table" v-if="details">
             <tbody>
               <tr>
                 <th>Tuition:</th>
-                <td>$ {{student.price.tuition}}</td>
+                <td>$ {{student.price.tuition | currency}}</td>
               </tr>
               <tr>
                 <th>Registration:</th>
-                <td>$ {{student.price.registration}}</td>
+                <td>$ {{student.price.registration | currency}}</td>
               </tr>
               <tr v-if="student.price.building !== 0">
                 <th>Building User Fee:</th>
-                <td>$ {{student.price.building}}</td>
+                <td>$ {{student.price.building | currency}}</td>
               </tr>
               <tr>
                 <th>Comprehensive Fee:</th>
-                <td>$ {{student.price.comprehensive}}</td>
+                <td>$ {{student.price.comprehensive | currency}}</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div v-if="students.length !== 0">
-          <h3>Total: $ {{total}}</h3>
+        <div v-if="students.length !== 0" class="pull-right">
+          <h4>Total: $ {{total | currency}}</h4>
         </div>
 
         <!-- <pre>{{student | json}}</pre> -->
